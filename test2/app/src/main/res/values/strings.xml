@@ -10,6 +10,7 @@
     <string name="title_activity_main_activity2">MainActivity2</string>
     <string name="title_activity_main_activity3">MainActivity3</string>
     <string name="title_activity_surface_view_test">SurfaceViewTest</string>
-
     <string name="surface_title">surfaceViewTest</string>
+    <string name="title_activity_animation">AnimationActivity</string>
+
 </resources>

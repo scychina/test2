@@ -5,7 +5,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -69,17 +71,17 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        x = event.getX();
-        y = event.getY();
-        return true;
-    }
-
-    @Override
     public void surfaceCreated(SurfaceHolder holder) {
 //        thread = new Thread(r);
 //        thread.start();
         drawGame();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        x = event.getX();
+        y = event.getY();
+        return true;
     }
 
     private void drawGame() {
@@ -94,14 +96,24 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
 
                 Bitmap bitmap= BitmapFactory.decodeResource(this.getResources(),R.drawable.a1);
+                Matrix matrix=new Matrix();//这个是针对单个位图的所以不需要save和restore
+//                matrix.postRotate(30,bitmap.getWidth()/2,bitmap.getHeight()/2);
+//                matrix.postTranslate(300,300);
                 canvas.save();//保存当前状态  save和restore对位图旋转，位移，拉伸都要使用这个2个方法防止对其他的有影响
-                canvas.rotate(30,bitmap.getWidth()/2,bitmap.getHeight()/2);
-                canvas.drawBitmap(bitmap,0,0,paint);
+//                canvas.rotate(30, bitmap.getWidth() / 2, bitmap.getHeight() / 2);
+//                canvas.translate(300,300);
+//                canvas.clipRect(0,0,20,20);
+//                canvas.drawPoint(50,30,paint);
+                Path path=new Path();
+                path.addCircle(30,30,60, Path.Direction.CCW);
+                canvas.clipPath(path);
+
+                canvas.drawBitmap(bitmap, 0, 0, paint);
                 canvas.restore();//返回到之前保存的状态
-                canvas.drawText("Game", x, y, paint);
-                canvas.drawRect(12,12,12,12,paint);
-                canvas.drawPoint(50,30,paint);
-                canvas.drawCircle(60,60,10,paint);
+//                canvas.drawBitmap(bitmap, 0, 0, paint);
+//                canvas.drawText("Game", x, y, paint);
+//                canvas.drawRect(12,12,12,12,paint);
+//                canvas.drawCircle(60,60,10,paint);
 
             }
         }catch (Exception e){
