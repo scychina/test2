@@ -27,8 +27,6 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         paint = new Paint();
         paint.setColor(Color.RED);
 
-
-
     }
 
     /**
