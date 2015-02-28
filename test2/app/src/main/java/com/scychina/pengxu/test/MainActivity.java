@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
         rd2 = (RadioButton) findViewById(R.id.android_select2);
         rd3 = (RadioButton) findViewById(R.id.android_select3);
         rg = (RadioGroup) findViewById(R.id.select_group);
+//        scychina
 
         rg.setOnCheckedChangeListener(new CheckedChangeListener());
 
