@@ -12,7 +12,7 @@ public class AnimationActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_animation);
+        setContentView(new AnimationView(this));
     }
 
 
