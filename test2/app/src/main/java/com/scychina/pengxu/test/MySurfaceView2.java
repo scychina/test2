@@ -16,29 +16,27 @@ public class MySurfaceView2 extends SurfaceView implements SurfaceHolder.Callbac
 
     public MySurfaceView2(Context context) {
         super(context);
-        // TODO Auto-generated constructor stub
         holder = this.getHolder();
         holder.addCallback(this);
         myThread = new MyThread(holder);//创建一个绘图线程
     }
 
+
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width,
                                int height) {
-        // TODO Auto-generated method stub
+
 
     }
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        // TODO Auto-generated method stub
         myThread.isRun = true;
         myThread.start();
     }
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
-        // TODO Auto-generated method stub
         myThread.isRun = false;
     }
 
@@ -70,7 +68,6 @@ public class MySurfaceView2 extends SurfaceView implements SurfaceHolder.Callbac
                         Thread.sleep(1000);//睡眠时间为1秒
                     }
                 } catch (Exception e) {
-                    // TODO: handle exception
                     e.printStackTrace();
                 } finally {
                     if (c != null) {
