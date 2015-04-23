@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -20,11 +21,13 @@ public class ListViewActivity extends ActionBarActivity implements AdapterView.O
     final String[] studentName = new String[]{"小强", "小名", "小孙"};
 
 
-    public List<String> getStudentNames() {
-        final ArrayList<String> studentName2 = new ArrayList<String>();
-        studentName2.add("小花");
-        studentName2.add("肖剑");
-        studentName2.add("一眉道长");
+    public ArrayList<HashMap<String, String>> getStudentNames() {
+        final ArrayList<HashMap<String, String>> studentName2 = new ArrayList<HashMap<String, String>>();
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("1", "小花");
+        map.put("2", "肖剑");
+        map.put("3", "一眉道长");
+        studentName2.add(map);
         return studentName2;
     }
 
@@ -38,7 +41,7 @@ public class ListViewActivity extends ActionBarActivity implements AdapterView.O
 
     private void setView() {
         android.widget.ListView listView = (android.widget.ListView) findViewById(R.id.listView1);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, studentName);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.student_item, getStudentNames());
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(this);
     }
@@ -69,7 +72,7 @@ public class ListViewActivity extends ActionBarActivity implements AdapterView.O
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-        Toast.makeText(this, "这个学生的名字：" + studentName[position], Toast.LENGTH_SHORT).show();
-        Log.i("TAG", "这个学生的名字：" + studentName[position]);
+        Toast.makeText(this, "这个学生的名字：" + getStudentNames().get(position), Toast.LENGTH_SHORT).show();
+        Log.i("TAG", "这个学生的名字：" + getStudentNames().get(position));
     }
 }
