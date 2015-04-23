@@ -21,7 +21,6 @@ import java.util.Objects;
 public class ListViewActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
 
 
-    final String[] studentName = new String[]{"小强", "小名", "小孙"};
 
     private String[] titleArray = {"姓名", "性别", "年龄", "居住地", "邮箱"};
     private String[] contentArray = {"scy", "男", "22", "连云港", "222225000"};
@@ -31,6 +30,7 @@ public class ListViewActivity extends ActionBarActivity implements AdapterView.O
     public ArrayList<HashMap<String, Object>> getStudentNames() {
         for (int i = 0; i < titleArray.length; i++) {
             HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("logo", R.drawable.logo);
             map.put("title", titleArray[i]);
             map.put("text", contentArray[i]);
             studentName2.add(map);
@@ -50,7 +50,7 @@ public class ListViewActivity extends ActionBarActivity implements AdapterView.O
         android.widget.ListView listView = (android.widget.ListView) findViewById(R.id.listView1);
 //        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.student_item, getStudentNames());
         //listView.setAdapter(arrayAdapter);
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this, getStudentNames(), android.R.layout.simple_list_item_2, new String[]{"title", "text"}, new int[]{R.id.textview1, R.id.textview2});
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, getStudentNames(), R.layout.student_item, new String[]{"logo", "title", "text"}, new int[]{R.id.imageView1, R.id.textview1, R.id.textview2});
         listView.setAdapter(simpleAdapter);
         listView.setOnItemClickListener(this);
     }
@@ -81,7 +81,7 @@ public class ListViewActivity extends ActionBarActivity implements AdapterView.O
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-        Toast.makeText(this, "您点行是：" + titleArray[position], Toast.LENGTH_SHORT).show();
-        Log.i("TAG", "您点行是：" + titleArray[position]);
+        Toast.makeText(this, titleArray[position] + "：" + contentArray[position], Toast.LENGTH_SHORT).show();
+        Log.i("TAG", titleArray[position] + "：" + contentArray[position]);
     }
 }
