@@ -8,11 +8,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 
 public class ListViewActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
@@ -20,14 +23,18 @@ public class ListViewActivity extends ActionBarActivity implements AdapterView.O
 
     final String[] studentName = new String[]{"小强", "小名", "小孙"};
 
+    private String[] titleArray = {"姓名", "性别", "年龄", "居住地", "邮箱"};
+    private String[] contentArray = {"scy", "男", "22", "连云港", "222225000"};
 
-    public ArrayList<HashMap<String, String>> getStudentNames() {
-        final ArrayList<HashMap<String, String>> studentName2 = new ArrayList<HashMap<String, String>>();
-        HashMap<String, String> map = new HashMap<String, String>();
-        map.put("1", "小花");
-        map.put("2", "肖剑");
-        map.put("3", "一眉道长");
-        studentName2.add(map);
+    final ArrayList<HashMap<String, Object>> studentName2 = new ArrayList<HashMap<String, Object>>();
+
+    public ArrayList<HashMap<String, Object>> getStudentNames() {
+        for (int i = 0; i < titleArray.length; i++) {
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("title", titleArray[i]);
+            map.put("text", contentArray[i]);
+            studentName2.add(map);
+        }
         return studentName2;
     }
 
@@ -41,8 +48,10 @@ public class ListViewActivity extends ActionBarActivity implements AdapterView.O
 
     private void setView() {
         android.widget.ListView listView = (android.widget.ListView) findViewById(R.id.listView1);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.student_item, getStudentNames());
-        listView.setAdapter(arrayAdapter);
+//        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.student_item, getStudentNames());
+        //listView.setAdapter(arrayAdapter);
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, getStudentNames(), android.R.layout.simple_list_item_2, new String[]{"title", "text"}, new int[]{R.id.textview1, R.id.textview2});
+        listView.setAdapter(simpleAdapter);
         listView.setOnItemClickListener(this);
     }
 
@@ -72,7 +81,7 @@ public class ListViewActivity extends ActionBarActivity implements AdapterView.O
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-        Toast.makeText(this, "这个学生的名字：" + getStudentNames().get(position), Toast.LENGTH_SHORT).show();
-        Log.i("TAG", "这个学生的名字：" + getStudentNames().get(position));
+        Toast.makeText(this, "您点行是：" + titleArray[position], Toast.LENGTH_SHORT).show();
+        Log.i("TAG", "您点行是：" + titleArray[position]);
     }
 }

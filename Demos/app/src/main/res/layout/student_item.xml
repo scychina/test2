@@ -7,12 +7,16 @@
     <TextView
         android:id="@+id/textview1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#bba3"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/textview2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:textColor="#bba3"
+        android:textSize="12sp" />
 
 </LinearLayout>
