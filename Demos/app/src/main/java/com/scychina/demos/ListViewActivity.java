@@ -33,6 +33,7 @@ public class ListViewActivity extends ActionBarActivity implements AdapterView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
         setView();
+        //test
     }
 
     private void setView() {
