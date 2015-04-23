@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".BaseAdapterListViewActivity"
+            android:label="@string/title_activity_base_adapter_list_view"></activity>
     </application>
 
 </manifest>

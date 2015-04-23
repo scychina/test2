@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Demos</string>
-
-    <string name="hello_world">Hello world!</string>
+    <string name="buttonTip">修改某行某列数据</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_base_adapter_list_view">BaseAdapterListViewActivity</string>
 </resources>
