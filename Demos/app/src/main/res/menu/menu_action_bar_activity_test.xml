@@ -10,8 +10,5 @@
 
     <item
         android:id="@+id/actionBar_close"
-        android:title="关闭"
-        android:showAsAction="withText"
-
-        />
+        android:title="关闭" />
 </menu>

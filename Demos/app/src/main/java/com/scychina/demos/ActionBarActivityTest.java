@@ -27,10 +27,10 @@ public class ActionBarActivityTest extends ActionBarActivity implements MenuItem
         MenuItem delete = menu.add(0, 2, 1, "删除");
         MenuItem open = menu.add(0, 2, 2, "打开");
         MenuItem close = menu.add(0, 2, 3, "关闭");
-        add.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        delete.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        open.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        close.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        add.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+        delete.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+        open.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+        close.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
         return true;
     }
 
