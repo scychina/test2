@@ -9,12 +9,16 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ListViewActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".BaseAdapterListViewActivity"
-            android:label="@string/title_activity_base_adapter_list_view">
+            android:label="@string/title_activity_base_adapter_list_view"></activity>
+        <activity
+            android:name=".ActionBarActivityTest"
+            android:label="@string/title_activity_action_bar_activity_test">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

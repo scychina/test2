@@ -1,5 +1,6 @@
 package com.scychina.demos;
 
+import android.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +39,9 @@ public class BaseAdapterListViewActivity extends ActionBarActivity {
         getAllVideo();
         setListViewByMyAdapter();
         initailListViewListener();
+//actionBar 在api 11最低
+//        ActionBar actionBar=this.getActionBar();
+//        actionBar.hide();
 
     }
 
