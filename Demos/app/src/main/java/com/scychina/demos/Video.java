@@ -6,13 +6,13 @@ import android.media.Image;
  * Created by pengxu on 15-4-23.
  */
 public class Video {
-    private String filmName;
-    private String filmTime;
-    private int filmImage;
-    private String price;
-    private int countOfPeople;
+    public String filmName;
+    public String filmTime;
+    public int filmImage;
+    public String price;
+    public int countOfPeople;
 
-    public Video(String _filmName, String _filmTime, int _filmImage, String Price, int countOfPeople) {
+    public Video(String _filmName, String _filmTime, int _filmImage, String price, int countOfPeople) {
         super();
         this.filmImage = _filmImage;
         this.filmName = _filmName;

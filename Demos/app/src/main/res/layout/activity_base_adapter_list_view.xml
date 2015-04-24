@@ -24,7 +24,14 @@
             android:id="@+id/editTextButton1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/buttonTip" />
+            android:text="@string/buttonTip"
+            android:onClick="editLineData" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/refresh"
+            android:onClick="refreshAllData" />
     </LinearLayout>
 
     <ListView
