@@ -7,4 +7,11 @@
         android:title="@string/action_settings"
         android:orderInCategory="100"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/actionBar_close"
+        android:title="关闭"
+        android:showAsAction="withText"
+
+        />
 </menu>
